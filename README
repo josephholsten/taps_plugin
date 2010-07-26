@@ -17,18 +17,18 @@ To install the taps scripts, run the generator:
 
 Then start a taps server by running:
 
-    script/taps_server jappleseed secret
+    script/taps server jappleseed secret
 
 By default, this will start a taps server on port 5000. You can then
 pull from this taps server at another location by using the
 taps_pull script:
 
-    script/taps_pull http://jappleseed:secret@taps.server.host:5000
+    script/taps pull http://jappleseed:secret@taps.server.host:5000
 
 You can also run the taps_server script on a different port and log
 debug messages:
 
-    script/taps_server --port 3000 --debug jappleseed secret
+    script/taps server --port 3000 --debug jappleseed secret
 
 
 Copyright (c) 2010 Joseph Anthony Pasquale Holsten, released under the MIT license

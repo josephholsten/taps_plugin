@@ -1,3 +1,3 @@
 require File.expand_path('../../config/environment',  __FILE__)
 require 'taps_plugin'
-TapsPlugin::Server::Command.start(ARGV)
+TapsPlugin::Command.start(ARGV)
