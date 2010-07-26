@@ -10,7 +10,7 @@ class TapsGeneratorTest < Rails::Generators::TestCase
 
   def test_generates_script
     run_generator
-    assert_file "script/taps_server"
+    assert_file "script/taps"
   end
   
   def test_adds_taps_dependency
