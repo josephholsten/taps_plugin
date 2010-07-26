@@ -1,0 +1,9 @@
+Description:
+    Add a taps_server to script/, which will run a taps server from the
+    current environment database.
+
+Example:
+    rails generate taps_script
+
+    This will create:
+        scripts/taps_server
