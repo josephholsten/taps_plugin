@@ -11,7 +11,7 @@ service you can push and pull data across.
 Example
 =======
 
-To install the taps_server script, run the generator:
+To install the taps scripts, run the generator:
 
     rails generate taps
 
@@ -20,10 +20,10 @@ Then start a taps server by running:
     script/taps_server jappleseed secret
 
 By default, this will start a taps server on port 5000. You can then
-pull from this taps server at another location by using the regular
-taps client:
+pull from this taps server at another location by using the
+taps_pull script:
 
-    taps pull db://host.to.pull.into/database http://jappleseed:secret@taps.server.host:5000
+    script/taps_pull http://jappleseed:secret@taps.server.host:5000
 
 You can also run the taps_server script on a different port and log
 debug messages:

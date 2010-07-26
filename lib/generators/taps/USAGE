@@ -3,7 +3,8 @@ Description:
     current environment database.
 
 Example:
-    rails generate taps_script
+    rails generate taps
 
     This will create:
+        scripts/taps_pull
         scripts/taps_server
