@@ -1,12 +1,17 @@
 require 'uri'
 
 module TapsPlugin # :nodoc:
+  # ActiveRecord (esp Rails) database config parsing
   class DatabaseConfig < Hash
     class << self
+      # Parse the +config/database.yml+ from the current directory
       def parse_database_yml
         return "" unless File.exists?(Dir.pwd + '/config/database.yml')
         return DatabaseConfig.parse(File.read(Dir.pwd + '/config/database.yml'))
-      end 
+      end
+
+      # Parse the config_file, using the database for the specified
+      # env, or use the current rack or rails env
       def parse(config_file, env = nil)
         environment = env || ENV['RAILS_ENV'] || ENV['MERB_ENV'] || ENV['RACK_ENV']
         environment = 'development' if environment.nil? or environment.empty?
@@ -19,15 +24,23 @@ module TapsPlugin # :nodoc:
         ""
       end
     end
-    
+
+    # Create from an ActiveRecord database config hash, eg:
+    #     db = TapsPlugin::DatabaseConfig.new(
+    #         'adapter' => 'db',
+    #         'username' => 'user',
+    #         'database' => 'database')
+    #     db.to_url # => "db://user@127.0.0.1/database?encoding=utf8"
     def initialize(conf)
       merge! conf
     end
-    
+
+    # Return the database config as a url string
     def to_url
-      URI::Generic.build(self.to_uri_hash).to_s
+      URI::Generic.build(to_uri_hash).to_s
     end
-    
+
+    private
     def to_uri_hash
       {
         :scheme => scheme,
@@ -40,8 +53,7 @@ module TapsPlugin # :nodoc:
         :query => query,
       }
     end
-    
-    private
+
     def scheme
       case self['adapter']
       when 'postgresql'
@@ -52,15 +64,15 @@ module TapsPlugin # :nodoc:
         self['adapter']
       end
     end
-    
+
     def username
       self['user'] || self['username']
     end
-    
+
     def password
       self['password']
     end
-    
+
     def userinfo
       if username.blank?
         nil
@@ -71,17 +83,17 @@ module TapsPlugin # :nodoc:
         userinfo
       end
     end
-    
+
     def host
       host = self['host'] || self['hostname']
       host ||= '127.0.0.1' unless scheme == 'sqlite'
       host
     end
-    
+
     def port
       self['port']
     end
-    
+
     def path
       if scheme == 'sqlite'
         "//#{self['database']}"
@@ -89,11 +101,11 @@ module TapsPlugin # :nodoc:
         "/#{self['database']}"
       end
     end
-    
+
     def query
       "encoding=#{normalize_encoding(self['encoding'])}" unless scheme == 'sqlite'
     end
-    
+
     def normalize_encoding(encoding)
       case encoding
       when nil

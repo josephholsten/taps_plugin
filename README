@@ -1,21 +1,22 @@
-Taps Plugin
-==========
+= Taps Plugin
 
-Taps Plugin is the the easiest way to push and pull data between
+* http://github.com/josephholsten/taps_plugin
+* http://rdoc.info/projects/josephholsten/taps_plugin
+* http://www.railsplugins.org/plugins/470-taps
+* mailto:joseph@josephholsten.com
+
+== Description:
+
+Taps is the the easiest way to push and pull data between
 databases and this plugin makes taps just work in rails environments.
-It provides a taps_server script that will talk to your rails
-environment to figure out your database configuration and start a taps
-service you can push and pull data across.
 
+== Synopsis:
 
-Example
-=======
+Taps plugin provides a script that will talk to your rails environment
+to figure out your database configuration, start a taps
+service, and pull data from other taps services.
 
-To install the taps scripts, run the generator:
-
-    rails generate taps
-
-Then start a taps server by running:
+Start a taps server by running:
 
     script/taps server jappleseed secret
 
@@ -30,5 +31,23 @@ debug messages:
 
     script/taps server --port 3000 --debug jappleseed secret
 
+== Requirements:
 
-Copyright (c) 2010 Joseph Anthony Pasquale Holsten, released under the MIT license
+* rails 3.0
+* taps 0.3
+
+== Installing:
+
+Install the taps plugin in your rails 3 app by going to the application
+directory and running:
+
+    rails plugin install http://github.com/josephholsten/taps_plugin
+
+Then generate the taps scripts, by running the generator:
+
+    rails generate taps
+
+== License:
+
+Copyright (c) 2010 Joseph Anthony Pasquale Holsten, released under the
+MIT license. See the COPYING file for details.

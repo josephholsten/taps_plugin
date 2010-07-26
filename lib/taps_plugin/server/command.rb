@@ -2,8 +2,9 @@ require 'taps_plugin/database_config'
 
 module TapsPlugin # :nodoc:
 module Server # :nodoc:
+  # Handler for the +script/taps server+ subcommand
   class Command
-    class Options
+    class Options # :nodoc:
       def self.parse!(argv)
         require 'optparse'
         opts={:port => 5000, :login => nil, :password => nil, :debug => false}

@@ -1,4 +1,4 @@
-class TapsGenerator < Rails::Generators::Base
+class TapsGenerator < Rails::Generators::Base # :nodoc:
   source_root File.expand_path('../templates', __FILE__)
   add_shebang_option!
   

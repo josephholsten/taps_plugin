@@ -2,8 +2,9 @@ require 'taps_plugin/database_config'
 
 module TapsPlugin # :nodoc:
 module Pull # :nodoc:
+  # Handler for the +script/taps pull+ subcommand
   class Command
-    class Options
+    class Options # :nodoc:
       def self.parse!(argv)
     		opts={:default_chunksize => 1000, :database_url => nil, :remote_url => nil, :debug => false, :resume_filename => nil, :disable_compresion => false, :indexes_first => false}
     		OptionParser.new do |o|

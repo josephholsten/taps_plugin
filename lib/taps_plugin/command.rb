@@ -1,4 +1,5 @@
-module TapsPlugin
+module TapsPlugin # :nodoc:
+  # Handler for +script/taps+
   class Command
     def self.start(argv)
       subcommand = argv.shift

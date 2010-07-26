@@ -16,11 +16,15 @@ end
 
 desc 'Generate documentation for the taps_server plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
+  begin
+    require 'sdoc'
+  rescue LoadError
+    warn "sdoc could not be loaded. Using ugly rdoc templates instead."
+  end
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'TapsServer'
-  rdoc.options << '--line-numbers' << '--inline-source'
+  rdoc.title    = 'Taps Plugin'
   rdoc.rdoc_files.include('README')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-CLEAN.include %w{ Gemfile.lock test/rails_root .bundle }
+CLEAN.include %w{ Gemfile.lock test/rails_root .bundle rdoc }
