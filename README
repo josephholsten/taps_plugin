@@ -46,6 +46,20 @@ Then generate the taps scripts, by running the generator:
 
     rails generate taps
 
+== Rails 2
+
+This plugin is designed to work with Rails 3, but most people aren't ready to
+make the leap so the taps plugin still works with a little effort. The
+generator only works in Rails 3, you'll need to add the taps script by hand.
+Just save this code in +script/taps+:
+
+    #!/usr/bin/env ruby
+    require File.expand_path('../../config/environment',  __FILE__)
+    require 'taps_plugin'
+    TapsPlugin::Command.start(ARGV)
+
+Make sure to make it executable and the script should work as normal.
+
 == License:
 
 Copyright (c) 2010 Joseph Anthony Pasquale Holsten, released under the
