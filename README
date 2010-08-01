@@ -25,10 +25,10 @@ pull from this taps server at another location by using the taps script:
 
     script/taps pull http://bobdobbs:secret@taps.server.host:5000
 
-You can also run the taps_server script on a different port and log
-debug messages:
+You can also run the taps server for a different evironment on a different
+port with debug logging:
 
-    script/taps server --port 3000 --debug bobdobbs secret
+    RAILS_ENV=development script/taps server --port 3000 --debug bobdobbs secret
 
 You can also pull just some tables without compression:
 
