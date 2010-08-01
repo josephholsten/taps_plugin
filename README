@@ -41,7 +41,7 @@ debug messages:
 Install the taps plugin in your rails 3 app by going to the application
 directory and running:
 
-    rails plugin install http://github.com/josephholsten/taps_plugin
+    rails plugin install http://github.com/josephholsten/taps_plugin.git
 
 Then generate the taps scripts, by running the generator:
 
