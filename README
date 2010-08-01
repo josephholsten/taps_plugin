@@ -30,6 +30,12 @@ debug messages:
 
     script/taps server --port 3000 --debug bobdobbs secret
 
+You can also pull just some tables without compression:
+
+    script/taps pull --disable-compression --tables=Posts,Users http://bobdobbs:secret@liveapp.host:5000
+
+You can explore even more options in the usage messages from running the taps script.
+
 == Requirements:
 
 * rails 3.0
