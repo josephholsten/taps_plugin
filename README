@@ -21,8 +21,7 @@ Start a taps server by running:
     script/taps server bobdobbs secret
 
 By default, this will start a taps server on port 5000. You can then
-pull from this taps server at another location by using the
-taps_pull script:
+pull from this taps server at another location by using the taps script:
 
     script/taps pull http://bobdobbs:secret@taps.server.host:5000
 
