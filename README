@@ -18,18 +18,18 @@ service, and pull data from other taps services.
 
 Start a taps server by running:
 
-    script/taps server jappleseed secret
+    script/taps server bobdobbs secret
 
 By default, this will start a taps server on port 5000. You can then
 pull from this taps server at another location by using the
 taps_pull script:
 
-    script/taps pull http://jappleseed:secret@taps.server.host:5000
+    script/taps pull http://bobdobbs:secret@taps.server.host:5000
 
 You can also run the taps_server script on a different port and log
 debug messages:
 
-    script/taps server --port 3000 --debug jappleseed secret
+    script/taps server --port 3000 --debug bobdobbs secret
 
 == Requirements:
 
