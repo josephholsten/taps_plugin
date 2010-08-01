@@ -7,14 +7,14 @@
 
 == Description:
 
-Taps is the the easiest way to push and pull data between
-databases and this plugin makes taps just work in rails environments.
+Taps is the the easiest way to push and pull data between databases and this
+plugin makes taps just work in rails environments.
 
 == Synopsis:
 
-The taps plugin provides a script that will talk to your rails environment
-to figure out your database configuration, start a taps
-service, and pull data from other taps services.
+The taps plugin provides a script that will talk to your rails environment to
+figure out your database configuration, start a taps service, and pull data
+from other taps services.
 
 Start a taps server by heading to your live app and telling the script to
 start a server, passing it a username and password:
@@ -28,9 +28,9 @@ and password:
 
     script/taps pull http://bobdobbs:secret@taps.server.host:5000
 
-That's all you've got to do. Of course, taps supports many more options.
-You can also run the taps server for a different environment on a different
-port with debug logging:
+That's all you've got to do. Of course, taps supports many more options. You
+can also run the taps server for a different environment on a different port
+with debug logging:
 
     RAILS_ENV=development script/taps server --port 3000 --debug bobdobbs secret
 
@@ -38,7 +38,8 @@ You can also pull just some tables without compression:
 
     script/taps pull --disable-compression --tables=Posts,Users http://bobdobbs:secret@liveapp.host:5000
 
-You can explore even more options in the usage messages from running the taps script.
+You can explore even more options in the usage messages from running the
+taps script.
 
 == Requirements:
 
