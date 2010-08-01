@@ -12,20 +12,24 @@ databases and this plugin makes taps just work in rails environments.
 
 == Synopsis:
 
-Taps plugin provides a script that will talk to your rails environment
+The taps plugin provides a script that will talk to your rails environment
 to figure out your database configuration, start a taps
 service, and pull data from other taps services.
 
-Start a taps server by running:
+Start a taps server by heading to your live app and telling the script to
+start a server, passing it a username and password:
 
     script/taps server bobdobbs secret
 
-By default, this will start a taps server on port 5000. You can then
-pull from this taps server at another location by using the taps script:
+By default, this will start a taps server to the database for your +Rails.env+
+on port 5000. You can then pull from this taps server into your local copy of
+your app by using the taps script to pull from the server using your username
+and password:
 
     script/taps pull http://bobdobbs:secret@taps.server.host:5000
 
-You can also run the taps server for a different evironment on a different
+That's all you've got to do. Of course, taps supports many more options.
+You can also run the taps server for a different environment on a different
 port with debug logging:
 
     RAILS_ENV=development script/taps server --port 3000 --debug bobdobbs secret
@@ -41,14 +45,14 @@ You can explore even more options in the usage messages from running the taps sc
 * rails 3.0
 * taps 0.3
 
-== Installing:
+== Installation:
 
-Install the taps plugin in your rails 3 app by going to the application
+Install the taps plugin in your Rails 3 app by going to the application
 directory and running:
 
     rails plugin install http://github.com/josephholsten/taps_plugin.git
 
-Then generate the taps scripts, by running the generator:
+Then run the generator to add the taps script:
 
     rails generate taps
 
